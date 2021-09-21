@@ -1,21 +1,20 @@
 package MetodosComputacionales.Unidad1;
 
-import java.util.Scanner;
+
 
 
 public class Metodos{
     public static void main(String[] args) {
-        metodoTrapecios();
+        metodoSimpson();
     
     }
     public static void MetodoBiseccion() {
-        Scanner leer= new Scanner(System.in);
         System.out.println ("Ingrese el valor de a");
-        double a=leer.nextDouble();
+        double a=TecladoIn.readDouble();
         System.out.println ("Ingrese el valor de b");
-        double b=leer.nextDouble();
+        double b=TecladoIn.readDouble();
         System.out.println ("Ingrese el valor para el error");
-        double error=leer.nextDouble();
+        double error=TecladoIn.readDouble();
         int i=1;
         if (f(a)*f(b)<0){
             double r;
@@ -48,11 +47,11 @@ public class Metodos{
         return r;
     }
     public static void metodoNewthonRaphson() {
-        Scanner leer= new Scanner(System.in);
+       
         System.out.println ("Ingrese el valor de x0");
-        double a=leer.nextDouble();
+        double a=TecladoIn.readDouble();
         System.out.println ("Ingrese el valor del error");
-        double error=leer.nextDouble();
+        double error=TecladoIn.readDouble();
         double r=0;
         int i=1;
         do{
@@ -71,21 +70,21 @@ public class Metodos{
 
     }
     public static void metodoTrapecios (){
-        Scanner leer= new Scanner(System.in);
+       
         System.out.println ("Ingrese el valor de a");
-        double a= leer.nextDouble();
+        double a=TecladoIn.readDouble();
         System.out.println ("Ingrese el valor de b");
-        double b= leer.nextDouble();
+        double b=TecladoIn.readDouble();
         System.out.println ("Ingrese la cantidad de puntos");
-        int n=leer.nextInt();
+        int n=TecladoIn.readLineInt();
         double h=(b-a)/n;
         System.out.println ("El valor de h es "+h);
         double f[]= new double [n+1];
 
-        System.out.println ("Desea trabajar con valores tabulados?true/false");
-        boolean res= leer.nextBoolean();
+        System.out.println ("Desea trabajar con valores tabulados?Si/No");
+        String res=TecladoIn.readLine();
         
-        if (res==true){
+        if (res.equalsIgnoreCase("Si")){
             f= llenarArregloManualmente(f);
         }
         else{
@@ -105,21 +104,21 @@ public class Metodos{
 
     }
     public static void metodoSimpson (){
-        Scanner leer= new Scanner(System.in);
+      
         System.out.println ("Ingrese el valor de a");
-        double a= leer.nextDouble();
+        double a=TecladoIn.readLineDouble();
         System.out.println ("Ingrese el valor de b");
-        double b= leer.nextDouble();
+        double b= TecladoIn.readLineDouble();
         System.out.println ("Ingrese la cantidad de puntos");
-        int n=leer.nextInt();
+        int n=TecladoIn.readLineInt();
         double h=(b-a)/n;
         System.out.println ("El valor de h es "+h);
         double f[]= new double [n+1];
 
-        System.out.println ("Desea trabajar con valores tabulados?true/false");
-        boolean res= leer.nextBoolean();
+        System.out.println ("Desea trabajar con valores tabulados?Si/No");
+        String res=TecladoIn.readLine();
         
-        if (res==true){
+        if (res.equalsIgnoreCase("Si")){
             f= llenarArregloManualmente(f);
         }
         else{
@@ -152,10 +151,9 @@ public class Metodos{
         
     }
     public static double [] llenarArregloManualmente(double [] array){
-        Scanner leer= new Scanner(System.in);
         for (int i=0; i<array.length;i++){
             System.out.println ("Ingrese el valor para el x"+i);
-            array[i]=leer.nextDouble();
+            array[i]=TecladoIn.readLineDouble();
             System.out.println (array[i]);
         }
         return array;
